@@ -98,7 +98,7 @@ const App = () => {
   }, [users]);
 
   return (
-    <div className="bg-red-800 h-screen flex flex-col justify-certer items-center p-10 text-white">
+    <div className="bg-pink-400 h-screen flex flex-col justify-certer items-center p-10 text-white">
       <Navbar isFormVisible={isFormVisible} setIsFormVisible={setIsFormVisible}/> 
       <UserList myUser={user} setUser={setUser} users={users} deleteUser={deleteUser} loadUsers={loadUsers} isEditVisible={isEditVisible} setIsEditVisible={setIsEditVisible}/>
       
@@ -134,7 +134,7 @@ const App = () => {
             </div>
           </div>
           <div className="flex flex-row justify-center items-center mt-5">
-            <button className="bg-cyan-600 text-white font-semibold p-2 rounded-md" > Agregar Nuevo Usuario</button>
+            <button className="bg-pink-500 text-white font-semibold p-2 rounded-md" > Agregar Nuevo Usuario</button>
           </div>
         </form>
       </Modal>
