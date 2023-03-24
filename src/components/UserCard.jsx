@@ -19,7 +19,7 @@ const UserCard = ( { user, deleteUser, loadUsers, isEditVisible, setIsEditVisibl
                 deleteUser(user)
                 loadUsers()
               }}><i className='bx bxs-trash' ></i> </button>
-            <button className="bg-amber-400 px-3 py-2 rounded-full hover:bg-amber-600" onClick={() => {
+            <button className="bg-blue-500 px-3 py-2 rounded-full hover:bg-blue-600" onClick={() => {
                 setIsEditVisible(!isEditVisible)
                 setUser(user)
               }}> <i className='bx bx-edit' ></i> </button>

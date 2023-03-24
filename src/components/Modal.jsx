@@ -4,7 +4,7 @@ const Modal = ({isVisible, children}) => {
     return (
         <>
             { isVisible && (
-                <div className="flex flex-row justify-center items-center absolte inset-0 bg-[rgb(159,159,244)] text-black rounded-lg">
+                <div className="flex flex-row justify-center items-center absolte inset-0 bg-[rgb(84,147,234)] text-black rounded-lg">
                 {children}
                 </div>
             )}
