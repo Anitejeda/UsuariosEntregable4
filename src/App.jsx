@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import Modal from './components/Modal';
 import EditForm from './components/EditForm';
 
-const BASE_URL= 'http://localhost:8080/';
+const BASE_URL= 'https://api-user-crud.onrender.com/';
 
 const getUsers = async () => {
   try {
