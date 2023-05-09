@@ -98,7 +98,7 @@ const App = () => {
   }, [users]);
 
   return (
-    <body className='bg-gradient-to-bl from-blue-400 to-blue-700 '>
+    <div className='bg-gradient-to-bl from-blue-400 to-blue-700 '>
       <div className="min-h-screen flex flex-col justify-certer items-center p-10 text-white">
         <Navbar isFormVisible={isFormVisible} setIsFormVisible={setIsFormVisible}/> 
         <UserList myUser={user} setUser={setUser} users={users} deleteUser={deleteUser} loadUsers={loadUsers} isEditVisible={isEditVisible} setIsEditVisible={setIsEditVisible}/>
@@ -140,7 +140,7 @@ const App = () => {
           </form>
         </Modal>
       </div>
-    </body>
+    </div>
   )
 }
 
