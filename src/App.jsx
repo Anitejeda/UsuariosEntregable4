@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import Modal from './components/Modal';
 import EditForm from './components/EditForm';
 
-const BASE_URL= 'https://users-crud.academlo.tech/';
+const BASE_URL= 'http://localhost:8080/';
 
 const getUsers = async () => {
   try {
@@ -98,47 +98,49 @@ const App = () => {
   }, [users]);
 
   return (
-    <div className="bg-blue-400 h-screen flex flex-col justify-certer items-center p-10 text-white">
-      <Navbar isFormVisible={isFormVisible} setIsFormVisible={setIsFormVisible}/> 
-      <UserList myUser={user} setUser={setUser} users={users} deleteUser={deleteUser} loadUsers={loadUsers} isEditVisible={isEditVisible} setIsEditVisible={setIsEditVisible}/>
-      
-      <EditForm myUser={user} setUser={setUser} handleSubmit={handleSubmit} updateUser={updateUser} loadUsers={loadUsers} reset={reset} register={register} isEditVisible={isEditVisible} setIsEditVisible={setIsEditVisible} emptyForm={emptyForm}/>
-      <Modal isVisible={isFormVisible} >
-        <form onSubmit={handleSubmit((data)=> {
-            postUsers(data)
-            setIsFormVisible(!isFormVisible)
-            loadUsers()
-            reset(emptyForm)
-          })}>
-          <h2 className='text-3xl font-bold'>Nuevo Usuario</h2>
-          <div className="flex flex-col gap-3">
-            <div>
-              <label htmlFor="nameId">First Name:</label>
-              <input type="text" id="nameId" {...register("first_name")}/>
+    <body className='bg-gradient-to-bl from-blue-400 to-blue-700 '>
+      <div className="min-h-screen flex flex-col justify-certer items-center p-10 text-white">
+        <Navbar isFormVisible={isFormVisible} setIsFormVisible={setIsFormVisible}/> 
+        <UserList myUser={user} setUser={setUser} users={users} deleteUser={deleteUser} loadUsers={loadUsers} isEditVisible={isEditVisible} setIsEditVisible={setIsEditVisible}/>
+        
+        <EditForm myUser={user} setUser={setUser} handleSubmit={handleSubmit} updateUser={updateUser} loadUsers={loadUsers} reset={reset} register={register} isEditVisible={isEditVisible} setIsEditVisible={setIsEditVisible} emptyForm={emptyForm}/>
+        <Modal isVisible={isFormVisible} setIsFormVisible={setIsFormVisible}>
+          <form onSubmit={handleSubmit((data)=> {
+              postUsers(data)
+              setIsFormVisible(!isFormVisible)
+              loadUsers()
+              reset(emptyForm)
+            })} className="bg-white p-12 rounded-lg">
+            <h2 className='text-3xl font-bold pb-4'>Nuevo Usuario</h2>
+            <div className="flex flex-col gap-3">
+              <div className='flex justify-between gap-10'>
+                <label htmlFor="nameId"  className="font-semibold">First Name:</label>
+                <input type="text" id="nameId" {...register("first_name")} className='border-2 border-blue-400 focus:outline-none focus:border-blue-700 rounded-lg' />
+              </div>
+              <div className='flex justify-between gap-10'>
+                <label htmlFor="lastNameId"  className="font-semibold">Last Name:</label>
+                <input type="text" id="lastNameId" {...register("last_name")} className='border-2 border-blue-400 focus:outline-none focus:border-blue-700 rounded-lg' />
+              </div>
+              <div className='flex justify-between gap-10'>
+                <label htmlFor="emailId"  className="font-semibold">Email:</label>
+                <input type="email" id="emailId" {...register("email")} className='border-2 border-blue-400 focus:outline-none focus:border-blue-700 rounded-lg' />
+              </div>
+              <div className='flex justify-between gap-10'>
+                <label htmlFor="passwordId" className="font-semibold"> Password:</label>
+                <input type="password" id="passwordId" {...register("password")} className='border-2 border-blue-400 focus:outline-none focus:border-blue-700 rounded-lg' />
+              </div>
+              <div className='flex justify-between gap-10'>
+                <label htmlFor=""  className="font-semibold">Birthday:</label>
+                <input type="date" {...register("birthday")} className='border-2 border-blue-400 focus:outline-none focus:border-blue-700 rounded-lg' />
+              </div>
             </div>
-            <div>
-              <label htmlFor="lastNameId">Last Name:</label>
-              <input type="text" id="lastNameId" {...register("last_name")}/>
+            <div className="flex flex-row justify-center items-center mt-5">
+              <button className="bg-blue-500 text-white font-semibold p-2 rounded-md" > Agregar Nuevo Usuario</button>
             </div>
-            <div>
-              <label htmlFor="emailId">Email:</label>
-              <input type="email" id="emailId" {...register("email")}/>
-            </div>
-            <div>
-              <label htmlFor="passwordId" className="font-semibold"> Password:</label>
-              <input type="password" id="passwordId" {...register("password")}/>
-            </div>
-            <div>
-              <label htmlFor="">Birthday:</label>
-              <input type="date" {...register("birthday")}/>
-            </div>
-          </div>
-          <div className="flex flex-row justify-center items-center mt-5">
-            <button className="bg-blue-500 text-white font-semibold p-2 rounded-md" > Agregar Nuevo Usuario</button>
-          </div>
-        </form>
-      </Modal>
-    </div>
+          </form>
+        </Modal>
+      </div>
+    </body>
   )
 }
 
